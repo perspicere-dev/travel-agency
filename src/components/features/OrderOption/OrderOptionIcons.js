@@ -5,7 +5,7 @@ import styles from './OrderOption.scss';
 import Icon from '../../common/Icon/Icon';
 
 const OrderOptionIcon = ({values, required, currentValue, setOptionValue}) => {
-  //   console.log('values', values);
+// console.log('setOptionValue', setOptionValue);
   //   console.log('currentValue', currentValue);
 
 
