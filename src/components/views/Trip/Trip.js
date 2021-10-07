@@ -17,6 +17,7 @@ import OrderForm from '../../features/OrderForm/OrderFormContainer';
 
 // eslint-disable-next-line react/prop-types
 const Trip = ({error, name, image, cost, days, description, country, intro}) => {
+
   if(error) return <NotFound />;
   else return (
     <Section>
