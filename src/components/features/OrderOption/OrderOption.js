@@ -19,6 +19,7 @@ const optionTypes = {
 
 };
 
+
 const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
   // console.log('otherprops', otherProps);
   // console.log('OrderOption current id: ', id);
