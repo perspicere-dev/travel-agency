@@ -23,7 +23,7 @@ describe ('Component TripSummary', () => {
     const component = shallow(<TripSummary tags={[]} id={expectedId} image={expectedImgOrName} name={expectedImgOrName}/>);
     expect(component.find('img').prop('src')).toEqual(expectedImgOrName);
     expect(component.find('img').prop('alt')).toEqual(expectedImgOrName);
-    console.log(component.debug());
+    // console.log(component.debug());
   });
 
   it('should render corectly props name, cost, days', () => {
@@ -42,6 +42,22 @@ describe ('Component TripSummary', () => {
 
   it('should throw error without requierd props', () => {
     expect(() => shallow(<TripSummary tags={[]} />)).toThrow();
+  });
+  const arrOfTags = ['one', 'two', 'three'];
+  it('shoul render proper tags', () => {
+    const component = shallow(<TripSummary tags={arrOfTags} id={expectedId}/>);
+    // const renderedDiv = component.find('.tags');
+    
+    // if (renderedDiv) {
+    //   arrOfTags.map(tag => {(
+    //     expect(component.find('.tag').at(arrOfTags.indexOf(tag)).text()).toEqual(arrOfTags[tag])
+    //   );
+    //   });
+    // }
+  
+    expect(component.find('.tag').at(0).text()).toEqual(arrOfTags[0]);
+    expect(component.find('.tag').at(1).text()).toEqual(arrOfTags[1]);
+    expect(component.find('.tag').at(2).text()).toEqual(arrOfTags[2]);   
   });
   
 });
