@@ -34,7 +34,7 @@ OrderOptionIcon.propTypes = {
   setOptionValue: PropTypes.func,
   values: PropTypes.array,
   currentValue: PropTypes.string,
-  required: PropTypes.any,
+  required: PropTypes.bool,
 };
   
 
