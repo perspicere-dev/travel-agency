@@ -21,7 +21,7 @@ const optionTypes = {
 
 
 const OrderOption = ({name, type, id, setOrderOption, ...otherProps}) => {
-  // console.log('otherprops', otherProps);
+  console.log('OrderOptionText', OrderOptionText);
   // console.log('OrderOption current id: ', id);
   const OptionComponent = optionTypes[type];
   //   console.log('optionTypes[type]', optionTypes[type]);

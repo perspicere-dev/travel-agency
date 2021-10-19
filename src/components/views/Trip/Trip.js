@@ -16,8 +16,8 @@ import {Grid, Row, Col} from 'react-flexbox-grid';
 import OrderForm from '../../features/OrderForm/OrderFormContainer';
 
 // eslint-disable-next-line react/prop-types
-const Trip = ({error, name, image, cost, days, description, country, intro}) => {
-
+const Trip = ({error, name, image, cost, days, description, country, intro, id}) => {
+  // console.log('alpha3Code', country.alpha3Code);
   if(error) return <NotFound />;
   else return (
     <Section>
@@ -73,7 +73,7 @@ const Trip = ({error, name, image, cost, days, description, country, intro}) => 
         <Row>
           <Col xs={12}>
             <PageTitle text='Trip Options' />
-            <OrderForm tripCost={cost}/>
+            <OrderForm tripCost={cost} tripId={id} tripName={name} countryCode={country.alpha3Code}/>
           </Col>
         </Row>
       </Grid>  
@@ -88,6 +88,7 @@ Trip.propTypes = {
   days: PropTypes.number,
   description: PropTypes.string,
   country: PropTypes.object,
+  id:  PropTypes.string,
 };
 
 export default Trip;

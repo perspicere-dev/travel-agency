@@ -11,12 +11,15 @@ import { formatPrice } from '../../../utils/formatPrice';
 import { calculateTotal} from '../../../utils/calculateTotal';
 import settings from '../../../data/settings';
 
-const sendOrder = (options, tripCost) => {
+const sendOrder = (options, tripCost, tripName, tripId, countryCode ) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
-
+  console.log('countryCode', countryCode);
   const payload = {
     ...options,
     totalCost,
+    tripId,
+    countryCode,
+    tripName,
   };
 
   const url = settings.db.url + '/' + settings.db.endpoint.orders;
@@ -39,6 +42,7 @@ const sendOrder = (options, tripCost) => {
 };
 
 const OrderForm = (props) => {
+  
   return (
     <Row>
       <div>
@@ -51,7 +55,7 @@ const OrderForm = (props) => {
       <Col xs={12}>
         <OrderSummary tripCost={props.tripCost} options={props.options} />
       </Col>
-      <Button onClick={() => sendOrder(props.options, props.tripCost)}>Order now!</Button>
+      <Button onClick={() => sendOrder(props.options, props.tripCost, 'hvhvbhvhv')}>Order now!</Button>
     </Row>
   );
 };
@@ -60,6 +64,9 @@ OrderForm.propTypes = {
   tripCost: PropTypes.string,
   options: PropTypes.object,
   setOrderOption: PropTypes.func,
+  tripId: PropTypes.string,
+  tripName: PropTypes.string,
+  countryCode: PropTypes.string,
 };
 
 export default OrderForm;

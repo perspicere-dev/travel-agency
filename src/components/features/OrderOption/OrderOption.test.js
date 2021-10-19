@@ -24,7 +24,7 @@ describe('Component Orderoption', () => {
 
 const optionTypes = {
   dropdown: 'OrderOptionDropdown',
-  //   icons: 'OrderOptionIcons', // dlaczego wyrzuca błąd = Method “dive” is meant to be run on 1 node. 0 found instead?
+  icons: 'OrderOptionIcons', // dlaczego wyrzuca błąd = Method “dive” is meant to be run on 1 node. 0 found instead?
   checkboxes: 'OrderOptionCheckboxes',
   number: 'OrderOptionNumber',
   text: 'OrderOptionText',
@@ -117,7 +117,7 @@ for(let type in optionTypes){
       }
       case 'icons': { // nie funkcjonalny ze względu na "odłączone" icons w line 26
         it('should run setOrderOption function on click', () => {
-          renderedSubcomponent.find('Icon').simulate('click');
+          renderedSubcomponent.find('div .icon').last().simulate('click'); 
           expect(mockSetOrderOption).toBeCalledTimes(1);
         });
         break;
