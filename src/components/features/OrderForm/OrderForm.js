@@ -13,7 +13,7 @@ import settings from '../../../data/settings';
 
 const sendOrder = (options, tripCost, tripName, tripId, countryCode ) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
-  console.log('countryCode', countryCode);
+  console.log('tripName', tripName);
   const payload = {
     ...options,
     totalCost,
@@ -32,6 +32,8 @@ const sendOrder = (options, tripCost, tripName, tripId, countryCode ) => {
     },
     body: JSON.stringify(payload),
   };
+
+  
 
   fetch(url, fetchOptions)
     .then(function(response){
@@ -55,7 +57,7 @@ const OrderForm = (props) => {
       <Col xs={12}>
         <OrderSummary tripCost={props.tripCost} options={props.options} />
       </Col>
-      <Button onClick={() => sendOrder(props.options, props.tripCost, 'hvhvbhvhv')}>Order now!</Button>
+      <Button onClick={() => sendOrder(props.options, props.tripCost, props.tripName, props.tripId, props.countryCode)}>Order now!</Button>
     </Row>
   );
 };
