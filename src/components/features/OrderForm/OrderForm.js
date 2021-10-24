@@ -13,7 +13,7 @@ import settings from '../../../data/settings';
 
 const sendOrder = (options, tripCost, tripName, tripId, countryCode ) => {
   const totalCost = formatPrice(calculateTotal(tripCost, options));
-  console.log('tripName', tripName);
+  console.log('...options.name', options.name);
   const payload = {
     ...options,
     totalCost,
@@ -24,6 +24,7 @@ const sendOrder = (options, tripCost, tripName, tripId, countryCode ) => {
 
   const url = settings.db.url + '/' + settings.db.endpoint.orders;
 
+
   const fetchOptions = {
     cache: 'no-cache',
     method: 'POST',
@@ -32,8 +33,11 @@ const sendOrder = (options, tripCost, tripName, tripId, countryCode ) => {
     },
     body: JSON.stringify(payload),
   };
-
-  
+ 
+  if(options.contact == '' || options.name == ''){
+    alert('please fill name and contact');
+    return;
+  }
 
   fetch(url, fetchOptions)
     .then(function(response){

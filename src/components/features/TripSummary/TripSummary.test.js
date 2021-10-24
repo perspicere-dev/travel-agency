@@ -47,17 +47,11 @@ describe ('Component TripSummary', () => {
   it('shoul render proper tags', () => {
     const component = shallow(<TripSummary tags={arrOfTags} id={expectedId}/>);
     // const renderedDiv = component.find('.tags');
-    
-    // if (renderedDiv) {
-    //   arrOfTags.map(tag => {(
-    //     expect(component.find('.tag').at(arrOfTags.indexOf(tag)).text()).toEqual(arrOfTags[tag])
-    //   );
-    //   });
-    // }
+
+    for(let i = 0; i < arrOfTags.length; i++ ) {
+      expect(component.find('.tag').at(i).text()).toEqual(arrOfTags[i]);
+    }
   
-    expect(component.find('.tag').at(0).text()).toEqual(arrOfTags[0]);
-    expect(component.find('.tag').at(1).text()).toEqual(arrOfTags[1]);
-    expect(component.find('.tag').at(2).text()).toEqual(arrOfTags[2]);   
   });
   
 });
