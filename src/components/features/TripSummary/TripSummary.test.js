@@ -51,7 +51,6 @@ describe ('Component TripSummary', () => {
     for(let i = 0; i < arrOfTags.length; i++ ) {
       expect(component.find('.tag').at(i).text()).toEqual(arrOfTags[i]);
     }
-  
   });
   
 });
