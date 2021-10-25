@@ -91,6 +91,7 @@ for(let type in optionTypes){
       expect(subcomponent).toBeTruthy();
       expect(subcomponent.length).toBe(1);
     });
+    
       
     /* type-specific tests */
     switch (type) {
