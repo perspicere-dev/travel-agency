@@ -11,5 +11,4 @@ export const formatTime = seconds => {
     const sDisplay = s < 10 ? '0' + s : s;
     return hDisplay + ':' + mDisplay + ':' + sDisplay; 
   }
-
 };
